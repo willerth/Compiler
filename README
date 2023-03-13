@@ -1,0 +1,5 @@
+Compiler written following Aho's Compiler's: Principles, Techniques, and Tools
+
+23/03/12 - wrote java methods that can translate a simple infix arithmetic
+expression with binary addition and subtraction into postfix
+Section 2.5
