@@ -16,10 +16,32 @@ public class Lexer {
 
     public Token scan() throws IOException{
 
+        //handle whitespace
         while(true){
             if(peek == ' ' || peek == '\t') continue;
             else if(peek == '\n') line++;
             else break;
+        }
+
+        //handle comments
+        if(peek == '/'){
+            peek = (char)System.in.read();
+            //handle single-line comments
+            if(peek == '/'){
+                do{
+                    peek = (char) System.in.read();
+                }while(peek != '\n');
+            }
+            //handle multi-line comment
+            if(peek == '*'){
+                while(true){
+                    peek = (char) System.in.read();
+                    if(peek == '*'){
+                        peek = (char) System.in.read();
+                        if(peek == '/') break;
+                    }
+                }
+            }
         }
 
         //handle numbers by determining their numerical value
