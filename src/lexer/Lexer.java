@@ -71,10 +71,23 @@ public class Lexer {
             return w;
         }
 
+        //handle relational operators
+        ArrayList<Character> relations = new ArrayList<Character>(
+                Arrays.asList('<', '=', '>', '!')
+        );
+        if(relations.contains(new Character(peek))){
+            StringBuffer b = new StringBuffer();
+            b.append(peek);
+            peek = (char) System.in.read();
+            if(peek == '=') b.append(peek);
+
+            String s = b.toString();
+            Rel r = new Rel(Tag.REL, s);
+        }
+
         Token t = new Token(peek);
         peek = ' ';
         return t;
     }
 }
 
-//i just want to see if this comment gets pushed to git under the right user
