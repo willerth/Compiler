@@ -11,7 +11,21 @@ public class Env {
         prev = p;
     }
 
-    public void put(String s, Token t){
-        table.put(s, t);
+    public void put(String s, Symbol sym){
+        table.put(s, sym);
+    }
+
+    public Symbol get(String s){
+        for(Env e = this; e != null; e = e.prev){
+            Symbol found = (Symbol) e.table.get(s);
+            if(found != null) return found;
+        }
+        return null;
+    }
+
+
+    private class Symbol{
+        String type;
     }
 }
+
