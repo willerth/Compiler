@@ -20,14 +20,14 @@ string          "(\\"|\\\\|[^"\\])*"
 if              {return(IF);}
 then            {return(THEN);}
 else            {return(ELSE);}
-while           {/*exercise 3.5.1*/ return(WHILE);}
+while           {/*exercise 3.5.1a*/ return(WHILE);}
 {id}            {yylval = (int) installID(); return(ID);}
 {number}        {yylval = (int) installNum(); return(NUM);}
 {string}        {yylval = (int) installString(); return(STRING);}
 "<"             {yylval = LT; return(RELOP);}
 "<="            {yylval = LE; return(RELOP);}
 "="             {yylval = EQ; return(RELOP);}
-"!="            {/*exercise 3.5.2*/ yylval = NE; return(RELOP);}
+"!="            {/*exercise 3.5.1b*/ yylval = NE; return(RELOP);}
 ">"             {yylval = GT; return(RELOP);}
 ">="            {yylval = GE; return(RELOP);}
 
