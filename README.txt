@@ -8,3 +8,5 @@ Section 2.5
 Section 2.6
 
 23/03/14 - exercise 2.6.2, allow lexical analyzer to recognize relational operators
+
+23/03/28 - wrote rudimentary lex.l
